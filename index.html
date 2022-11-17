@@ -25,7 +25,6 @@
     #main{
       background-color: rgba(1, 1, 1, 1);
       height: 657px;
-      /* position: relative; */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -33,10 +32,8 @@
 
     .form{
       display: flex;
-      /* height: 200px; */
       background-color: rgba(1, 1, 1, 0.9);
       flex-direction: column;
-      /* margin-bottom: ; */
       font-size: 30px;
       color: white;
       margin-right: 5%;
@@ -55,7 +52,7 @@
       align-self: flex-end;
     }
 
-    button{
+    button{ 
       margin-top: 40px;
       width: 20%;
       margin-left: 80%;
@@ -63,7 +60,7 @@
       height: 40px;
       background-color: rgb(102, 197, 67);
       font-size: 20px;
-      animation: FadeIn ease-in 4s;
+      animation: FadeIn ease-in 2s;
       cursor: pointer;
       font-weight: 800;
       min-width: 100px;
@@ -99,105 +96,56 @@
     <div class="form form-1">
       <label for="name">Vì web này chỉ dành cho 1 người duy nhất nên cho tớ hỏi họ tên của cậu là gì thế ?</label>
       <input type="text" id="name">
-      <button class="btn-1">Nhập</button>
+      <button class="submit">Nhập</button>
     </div>
 
-    <div class="form form-2 hidden">
-      <span>My sao, đúng thật là cậu rồi, quả là 1 cái tên siu cute nhỉ !</span> 
-      <button class="btn-2">Tiếp</button>
-    </div>
-
-    <div class="form form-3 hidden">
-      <span>Hmmm, Tớ có 1 điều quan trọng muốn nói với cậu...</span> 
-      <button class="btn-3">Tiếp</button>
-    </div>
-
-    <div class="form form-4 hidden">
-      <span>Tớ biết, là cậu luôn muốn có 1 lời tỏ tình lãng mạn giống như những người khác.</span> 
-      <button class="btn-4">Tiếp</button>
-    </div>
-
-    <div class="form form-5 hidden">
-      <span>Thì đây sẽ là chiếc web mà tớ code vụng để thể hiện tình cảm của mình dành cho cậu...</span> 
-      <button class="btn-5">Tiếp</button>
-    </div>
-
-    <div class="form form-6 hidden">
-      <span>Cậu đối với tớ như mặt trời vậy, luôn dẫn đường tớ hướng về phía trước.</span> 
-      <button class="btn-6">Tiếp</button>
-      <img src="" alt="">
-    </div>
-
-    <div class="form form-7 hidden">
-      <span>Cậu tỏa ra hơi ấm, tỏa ra tiếng cười, khiến 2 mắt tớ không tài nào có thể mở to ra được, 2 má thì không ngừng hóp lại vì đỏ mặt.</span> 
-      <button class="btn-7">Tiếp</button>
-    </div>
-
-    <div class="form form-8 hidden">
-      <span>Có thể lúc đầu tớ cũng không sâu đậm mấy với tình cảm của bản thân...</span> 
-      <button class="btn-8">Tiếp</button>
-    </div>
-
-    <div class="form form-9 hidden">
-      <span>Nhưng chả hiểu từ lúc nào, chẳng kịp nhận ra nữa, tớ đã yêu cậu nhiều lắm rồi, muốn được chở che, chăm sóc cho cậu.</span> 
-      <button class="btn-9">Tiếp</button>
-    </div>
-
-    <div class="form form-10 hidden">
-      <span>Tớ mê cậu ở mọi thứ, đặc biệt là sự cute của cậu, khiến mình mãi chìm đắm trong tình yêu.</span> 
-      <button class="btn-10">Tiếp</button>
-    </div>
-
-    <div class="form form-11 hidden">
-      <span>Nên là...</span> 
-      <button class="btn-11">Tiếp</button>
-    </div>
-
-    <div class="form form-12 hidden">
-      <span>Cậu hãy cho phép tớ vẽ nên 1 tương lai xa, nơi mà có cả 2 ta đứng cùng, nhé!</span> 
-      <button class="btn-12">Tiếp</button>
-    </div>
-
-    <div class="form form-13 hidden">
-      <span>Tớ yêu cậu.</span> 
-      <button class="btn-13">Tiếp</button>
-    </div>
+    <div class="main-span"></div>
+    <div class="main-btn"></div>
 
     <iframe src="./heart animation/heart.html" frameborder="0" class="hidden"></iframe>
   </div>
-  <script>
+  <script type="module">
+    import {textList} from "./assets/JS/text.js"
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
 
     const formList = $$('.form')
+    const span = $('.main-span')
+    const btn = $('.main-btn')
 
-    for(let i = 1; i <= formList.length; i++) {
-      if(i == 1) {
-        $(`.btn-${1}`).onclick = function(e) {
-          if ($('#name').value === 'Lê Phương My') {
-            formList[i - 1].classList.add('hidden')
-            formList[i].classList.remove('hidden') 
-          }
-          else{
-            this.style.transform = `translate(${Math.floor(Math.random()* $('#main').clientWidth / 5) }px, ${Math.floor(Math.random()*$('#main').clientHeight/5) }px)` 
-          }
-        }
+    $(`.submit`).onclick = function(e) {
+      if ($('#name').value === 'Lê Phương My') {
+        formList[0].classList.add('hidden')
       }
       else{
-        $(`.btn-${i}`).onclick = function(e) {
-          if(i == 13) {
-            formList[12].classList.add('hidden')
-            $('iframe').classList.remove("hidden")
-          }
-          else{
-            formList[i - 1].classList.add('hidden')
-            formList[i].classList.remove('hidden') 
-          }
-          
-        }
+        this.style.transform = `translate(${Math.floor(Math.random()* $('#main').clientWidth / 5) }px, ${Math.floor(Math.random()*$('#main').clientHeight/5) }px)` 
       }
     }
-   
+
+    // render = () => {
+    //   do {
+        
+    //   } while ();
+    // }
+    let contentSpan = []
+    let contentBtn = []
+    let i = 1;
+    let isClick = false;
+    do {
+      isClick = false;
+      contentSpan.push(`<span class="span-${i}">${textList[i-1].span}</span>`)
+      span.innerHtml = contentSpan.join('')
+      setTimeout(() => {
+        contentSpan.push(`<button class="btn-${i}">Tiếp</button>`)
+        btn.innerHtml = contentBtn.join('')
+      }, 1000)
+
+      $(`.btn-${i}`).onclick = function() {
+        isClick = true;
+      }
+
+    } while (isClick);
+
   </script>
 </body>
 </html>
