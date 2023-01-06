@@ -24,10 +24,13 @@
 
     #main{
       background-color: rgba(1, 1, 1, 1);
-      height: 657px;
+      height: 100%;
+      width: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      position: fixed;
+      overflow: auto;
     }
 
     .form{
@@ -52,29 +55,41 @@
       align-self: flex-end;
     }
 
+    .btn{
+      height: 42px;
+      border-radius: 20px;
+     
+      background-color: rgb(102, 197, 67);
+      font-size: 20px;
+      animation: FadeIn ease-in 4s;
+      cursor: pointer;
+      font-weight: 800;
+      min-width: 100px;
+      max-width: 140px;
+      margin: 50px 0 0 800px;
+    }
+
     button{ 
       margin-top: 40px;
       width: 20%;
       margin-left: 80%;
-      border-radius: 20px;
       height: 40px;
-      background-color: rgb(102, 197, 67);
-      font-size: 20px;
-      animation: FadeIn ease-in 2s;
-      cursor: pointer;
-      font-weight: 800;
-      min-width: 100px;
     }
 
     .hidden{
-      display: none;
+      display: none !important;
     }
 
     .open{
       display: flex;
     }
     
-    span{
+    .main-span{
+      animation: FadeIn ease-in 1s;
+      font-size: 30px;
+      color: white;
+      padding-right: 30px;
+      padding-left: 30px;
     }
 
     span, label, input{
@@ -89,19 +104,292 @@
         opacity: 1;
       }
     }
+
+    @keyframes FadeOut{
+      from{
+        opacity: 1;
+      }
+      to{
+        opacity: 0;
+      }
+    }
+
+    .pre-letter{
+      height: 300px;
+      width: 600px;
+      background-color: white;
+      position: relative;
+      box-shadow: 0 0 10px 10px rgb(255 255 255 / 30%);
+      animation: FadeIn 2s ease-in;
+      transition: height 2s linear, width 2s linear;
+    }
+
+    .pre-letter::after{
+      position: absolute;
+      content: "";
+      display: block;
+      height: inherit;
+      width: inherit;
+      background-color: rgb(217, 212, 166);
+      clip-path: polygon(50% 50%, 0 0, 100% 0);
+    }
+
+    .letter-arrow{
+      position: fixed;
+      z-index: 3;
+      font-weight: 800;
+      font-size: 25px;
+      color: rgb(249, 68, 167);
+      top: 310px;
+      left: 720px;
+    }
+
+    .letter-node{
+      content: "";
+      display: block;
+      height: 40px;
+      background-color: rgb(227, 216, 113);
+      border-radius: 40px;
+      top: 35%;
+      left: 50%;
+      width: 40px;
+      position: absolute;
+      transform: translate(-50% ,50%);
+      z-index: 2;
+      cursor: pointer;
+    }
+
+    .main-letter{
+      height: 90%;
+      width: 400px;
+      background-color: rgb(217, 212, 166);
+      box-shadow: 0 0 10px 10px rgb(255 255 255 / 30%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      animation: OpenLetter 2s ease-in;
+    }
+
+    @keyframes OpenLetter {
+      0%{
+        height: 0;
+        opacity: 0;
+      }
+      100%{
+        height: 90%;
+        opacity: 1;
+      }
+    }
+
+    .content-container{
+      padding: 10px;
+      position: absolute;
+      height: 90%;
+      width: 90%;
+      text-align: center;
+      background-color: rgb(240, 235, 188);
+      overflow: auto;
+    }
+
+    .content-container::-webkit-scrollbar{
+      display: none;
+    }
+
+    .letter-title{
+      color: rgb(227, 216, 113);
+      font-style: italic;
+      font-weight: 800;
+      font-size: 25px;
+      padding: 10px;
+      animation: FadeIn 3s ease-in;
+    }
+
+    .sub-letter-title{
+      color: rgba(184, 176, 107, 0.8);
+      font-style: italic;
+      padding: 10px;
+      animation: FadeIn 3.5s ease-in;
+    }
+
+    .main-letter-content{
+      margin-top: 10px;
+      animation: FadeIn 4s ease-in;
+    }
+
+    .sub-ending-letter{
+      margin-top: 5px;
+      font-weight: 800;
+      font-size: bold;
+      text-align: right;
+      animation: FadeIn 4.5s ease-in;
+    }
+
+    .sub-ending-letter.kyten{
+      margin-right: 80px;
+      animation: FadeIn 5s ease-in;
+    }
+
+    .quote-1{
+      margin-top: 10px;
+      text-align: right;
+      margin-right: 90px;
+      animation: FadeIn 10s ease-in;
+    }
+
+    .quote-2{
+      margin-top: 5px;
+      text-align: right;
+      margin-right: 20px;
+      animation: FadeIn 11s ease-in;
+    }
+
+
+    /* MEMORIES CSS */
+    .memories-storage{
+    }
+
+    .memories-storage img{
+      position: absolute;
+      height: 100px;
+      right: 50px;
+      cursor: pointer;
+      animation: FadeIn ease-in 2s;
+    }
+
+    .memories-storage-description{
+      position: absolute;
+      height: 110px;
+      width: 200px;
+      right: 200px;
+      top: 200px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: 100;
+      background-color: rgb(227, 226, 220);
+      clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 75% 75%, 75% 100%, 50% 75%, 0% 75%);
+      animation: FadeIn ease-in 1s;
+    }
+
+    .memories{
+      position: absolute;
+      font-weight: 600;
+      font-size: 16px;
+      height: 160px;
+      width: 160px;
+      background: no-repeat center/cover;
+      clip-path: circle(50% at 50% 50%);
+      text-align: center;
+      line-height: 160px;
+      cursor: pointer;
+      animation: FadeIn ease-in 2s;
+    }
+
+    .memories a{
+      text-decoration: none;
+      color: rgb(217, 212, 166);
+    }
+
+    .memories-layer{
+      width: 100%;
+      background-color: rgba(1, 1, 1, 0.6);
+    }
+
+    .our-photos{
+      top: 20px;
+      left: 40px;
+      background-image: url(./assets/media/photo.jpg);
+    }
+
+    .our-stories{
+      bottom: 20px;
+      left: 40px;
+      background-image: url(./assets/media/story.PNG);
+    }
+
+    .our-timelapses{
+      top: 20px;
+      right: 40px;
+      background-image: url(./assets/media/timelapse.png);
+    }
+
+    .our-messengers{
+      bottom: 20px;
+      right: 40px;
+      background-image: url(./assets/media/messenger.png);
+    }
+
+    .to-the-end-btn{
+      position: absolute;
+      text-align: center;
+      top: 260px;
+      left: 120px;
+      margin: 0;
+      height: 120px;
+      max-width: 200px;
+      line-height: 1.5;
+      padding: 4px;
+    }
+
   </style>
 </head>
 <body>
-  <audio autoplay> <source src="./assets/sound1.mp3" type="audio/mpeg"> </audio>
+  <audio class="main-audio"> <source src="./assets/sound1.mp3" type="audio/mpeg"> </audio>
   <div id="main">
-    <div class="form form-1">
+    <div class="form begin">
       <label for="name">Vì web này chỉ dành cho 1 người duy nhất nên cho tớ hỏi họ tên của cậu là gì thế ?</label>
       <input type="text" id="name">
-      <button class="submit">Nhập</button>
+      <button class="submit btn">Nhập</button>
     </div>
 
-    <div class="main-span"></div>
-    <div class="main-btn"></div>
+    <div class="main-form hidden">
+      <div class="main-span hidden"></div>
+      <div class="main-btn btn hidden"></div>
+    </div>
+
+    <div class="pre-letter hidden">
+      <div class="letter-node"></div>
+      <span class="letter-arrow"><------ Bấm vào đây này bấy bi</span>
+    </div>
+
+    <div class="main-letter hidden">
+      <div class="content-container">
+        <h2 class="letter-title">Thư "hồi phục thương tổn"</h2>
+        <div class="sub-letter-title">Gửi cô bé đáng iu Lê Phương My </div>
+        <div class="main-letter-content">
+          Vậy là đã gần 11 tháng quen nhau, gần 1 tháng yêu xa, ta chỉ còn ... ngày nữa là sẽ được gặp lại.
+          Nhưng mà trong khoảng thời gian yêu xa ngắn ngủi ấy, ta cũng đã có rất nhiều chuyện xảy ra. 
+          Cãi nhau miên mang, dường như cứ cách 2-3 ngày là 1 đợt. Lý do cũng rất nhiều là do ta không hiểu nhau,
+          ta không biết được đối phương đang cần gì, và làm gì để đáp ứng được. Tình yêu mà, đã thế còn yêu xa.
+          Ta cứ coi như những chuyện đó là "hòn đá cản đường" trong chuyện tình của chúng ta. Nếu chúng ta vượt qua được,
+          tương lai sẽ tuyệt vời biết mấy My nhỉ. Cá nhân anh cũng đã làm nhiều chuyện có lỗi với anh, anh không nói xin lỗi nữa,
+          anh chỉ mong My nhìn nhận sự cố gắng của anh từ bây giờ, anh sẽ bù đắp cho My mọi thứ khi mà ta có thể cảm nhận được sự lạnh giá của đôi bàn tay
+          trần giữa Nha Trang lạnh lẽo. Anh sẽ cố gắng hết sức mình để làm My hạnh phúc. Và cả 2 hãy cứ bước tiếp vì một tương lai có cả 2 ta... 
+          Đáng lẽ đến đây là hết rồi, nhưng mà đoạn thời gian này thật khó để vượt qua quá đi, sự lạnh nhạt của em khiến anh phải viết tiếp.
+          Hai ta quyết định là tạm thời không can thiệp vào đời sống của nhau ha. Anh thấy không ổn, anh không thể chịu được sự lạnh nhạt của em. 
+          Anh nhớ những câu chuyện về 1 ngày của em. Anh không biết làm cách nào nữa. Nếu sau này mà ta có thể gặp lại được, anh sẽ ôm em thật chặt, anh sẽ nói với em,
+          rằng anh yêu em nhiều như thế nào. Anh nhớ My quá... 
+        </div>
+        <div class="sub-ending-letter">Xin hết.</div>
+        <div class="sub-ending-letter kyten">Ký tên</div>
+        <div class="quote-1">Khoa</div>
+        <div class="quote-2">Bạn trai đần của em</div>
+      </div>
+    </div>
+
+    <div class="memories-storage hidden">
+      <img src="./assets/media/storage1.png" alt="">
+    </div>
+    <div class="memories-storage-description hidden">Cậu hãy mở chiếc rương ký ức này đi!</div>
+    <div class="our-photos memories hidden"><a href="https://photos.google.com/share/AF1QipNEc6gkDKM0jlAPYlxz8721BBZGr4ZaKFzEI8cWTgGl_K-ZgX0xL8Y4LyqEmk8xrw?key=RWlsSHI4bDlKOTd3UUF4cWhiWkdhY3R6TXdUSXVR" target="_blank"><div class="memories-layer">PHOTOS</div></a></div>
+    <div class="our-stories memories hidden"><a href="#" target="_blank"><div class="memories-layer">STORIES</div></a></div>
+    <div class="our-timelapses memories hidden"><a href="https://drive.google.com/drive/folders/1k_oq6d9dg7f3GClTShseQ9uGRyCcwJjh?usp=sharing" target="_blank"><div class="memories-layer">TIMELAPSES</div></a></div>
+    <div class="our-messengers memories hidden"><a href="#" target="_blank"><div class="memories-layer">MESSENGERS</div></a></div>
+
+    <div class="to-the-end-btn btn hidden">Sẽ có thêm nhiều cập nhật trong tương lai nhé bé My ^^</div>
+
+   
 
     <iframe src="./heart animation/heart.html" frameborder="0" class="hidden"></iframe>
   </div>
@@ -110,42 +398,136 @@
     const $ = document.querySelector.bind(document)
     const $$ = document.querySelectorAll.bind(document)
 
-    const formList = $$('.form')
-    const span = $('.main-span')
-    const btn = $('.main-btn')
+    const app = {
+      validate: function() {
+        const form = $('.form.begin')
+        const submitBtn = form.querySelector('.submit')
+        const spanArea = $('.main-span')
+        const btnArea = $('.main-btn')
+        const letterNode = $('.letter-node')
+        const letter = $('.pre-letter')
+        const mainLetter = $('.main-letter')
+        const letterArrow = $('.letter-arrow')
+        const storage = $('.memories-storage')
+        const memories = $$('.memories')
+        const toTheEndBtn = $('.to-the-end-btn')
+        const _this = this
+        let currentId = 0
 
-    $(`.submit`).onclick = function(e) {
-      if ($('#name').value === 'Lê Phương My') {
-        formList[0].classList.add('hidden')
-      }
-      else{
-        this.style.transform = `translate(${Math.floor(Math.random()* $('#main').clientWidth / 5) }px, ${Math.floor(Math.random()*$('#main').clientHeight/5) }px)` 
+        submitBtn.onclick = function(e) {
+          if(form.querySelector('input').value === 'Lê Phương My') {
+            _this.hideForm(form)
+            $('.main-form').classList.remove('hidden')
+            spanArea.innerText = textList[currentId].span
+            spanArea.classList.remove('hidden')
+            btnArea.classList.remove('hidden')
+            currentId++
+          }
+          else{
+            let randomNumber = random(e)
+            // submitBtn.style.transform = 'translate(-100px,100px)'
+            Object.assign(submitBtn.style, {
+              transform: `translate(${randomNumber < - 100 ? randomNumber  + 800 : randomNumber - 500}px,${randomNumber < - 100 ? randomNumber  + 800 : randomNumber - 500}px)`
+            //   // transform: `translateX(${randomNumber}px)`,
+            //   // transform: `translateY(${randomNumber < - 600 ? randomNumber  + 800 : randomNumber - 500}px)`
+            })
+          }
+        } 
+
+        btnArea.onclick = function(e) {
+          if(currentId == 11){
+            btnArea.classList.add('hidden')
+            spanArea.classList.add('hidden')
+            letter.classList.remove('hidden') 
+          } 
+          else{
+            btnArea.classList.add('hidden')
+            spanArea.classList.add('hidden')
+            spanArea.innerText = textList[currentId].span
+            currentId++
+            setTimeout(() => {
+              spanArea.classList.remove('hidden')
+              btnArea.classList.remove('hidden')
+            }, 200)     
+          }
+          
+          // thêm tiếng tim đập 
+
+        }
+
+        letterNode.onclick = function(e) {
+          e.target.style.animation = 'FadeOut 3s ease-out'
+          setTimeout(()=>{
+            _this.hideForm(e.target)
+            _this.hideForm(letterArrow)
+            Object.assign(letter.style, {
+              height: '0',
+              width: '0',
+            })
+                 
+            setTimeout(()=>{
+              _this.hideForm(letter)
+              mainLetter.classList.remove('hidden')
+            }, 2000)
+          },200)
+
+          setTimeout(() => {
+            storage.classList.remove('hidden')
+            setTimeout(()=>{
+              $('.memories-storage-description').classList.remove('hidden')
+            }, 2000)
+          }, 20000)
+        }
+
+        storage.onclick = function() {
+          storage.classList.add('hidden')
+          $('.memories-storage-description').classList.add('hidden')
+          for(let i = 0; i < 4; i++) {
+            memories[i].classList.remove('hidden')
+          }
+
+          setTimeout(()=>{
+            toTheEndBtn.classList.remove('hidden')  
+          }, 10000)
+        }
+
+        toTheEndBtn.onclick = function() {
+          toTheEndBtn.classList.add('hidden')
+          mainLetter.classList.add('hidden')
+          for(let i = 0; i < 4; i++) {
+            memories[i].classList.add('hidden')
+          }
+          $('iframe').classList.remove('hidden')
+        }
+
+        let random = (selector) => {
+          let randomNumber = Math.floor(Math.random()*(selector.screenX))
+          
+          if(randomNumber < selector.offsetX) {
+            return randomNumber
+          }
+          else{
+            randomNumber = randomNumber - window.screen.width 
+            if(randomNumber > -1000){
+              return randomNumber
+            }
+            else{
+              return randomNumber + 200
+            }
+          }
+        }
+      },
+
+      hideForm: function(selector) {
+        selector.classList.add('hidden')
+      },
+
+      start: function() {
+        this.validate()
       }
     }
 
-    // render = () => {
-    //   do {
-        
-    //   } while ();
-    // }
-    let contentSpan = []
-    let contentBtn = []
-    let i = 1;
-    let isClick = false;
-    do {
-      isClick = false;
-      contentSpan.push(`<span class="span-${i}">${textList[i-1].span}</span>`)
-      span.innerHtml = contentSpan.join('')
-      setTimeout(() => {
-        contentSpan.push(`<button class="btn-${i}">Tiếp</button>`)
-        btn.innerHtml = contentBtn.join('')
-      }, 1000)
-
-      $(`.btn-${i}`).onclick = function() {
-        isClick = true;
-      }
-
-    } while (isClick);
+    app.start()
 
   </script>
 </body>
